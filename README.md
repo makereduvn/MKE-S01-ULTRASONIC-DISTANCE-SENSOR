@@ -63,14 +63,15 @@ MKE-S01 Ultrasonic Distance Sensor hỗ trợ điện áp giao tiếp 3.3V và 5
 - Cấp nguồn 5VDC cho mạch qua hai chân GND và 5V.
 - kết nối chân TRIG và ECHO của Sensor với chân điều khiển được khai báo trong chương trình.
 
-### Hướng dẫn sử dụng với Arduino Uno / ESP32
+### Hướng dẫn sử dụng với Arduino / ESP32
 - Trong Github của bộ thư viện, chọn **<> Code / Download ZIP** để tải về bộ thư viện.
 - Mở chương trình Arduino, chọn **Sketch / Include Library / Add .ZIP Library** để cài đặt bộ thư viện.
 - Mở chương trình mẫu tại **File / Examples / MKE_S01_Ultrasonic**
 - Cấu hình board mạch tương ứng là **Arduino Uno / ESP32**, chọn đúng cổng **COM Port** của mạch và nhấn **Upload** để nạp chương trình.
 - Cấp nguồn 5VDC cho mạch, kết nối chân TRIG và ECHO của Sensor với chân điều khiển được khai báo trong chương trình.
 - Xem kết quả mạch hoạt động theo chương trình đã nạp.
-Chương trình mẫu cho Arduino Uno:
+
+#### Chương trình mẫu cho Arduino Uno:
 ```ino
 // Thêm bộ thư viện
 // Add the library.
@@ -112,7 +113,8 @@ void loop()
   delay(200);
 }
 ```
-Chương trình mẫu cho ESP32:
+
+#### Chương trình mẫu cho ESP32:
 ```ino
 // Thêm bộ thư viện
 // Add the library.
