@@ -63,14 +63,97 @@ MKE-S01 Ultrasonic Distance Sensor hỗ trợ điện áp giao tiếp 3.3V và 5
 - Cấp nguồn 5VDC cho mạch qua hai chân GND và 5V.
 - kết nối chân TRIG và ECHO của Sensor với chân điều khiển được khai báo trong chương trình.
 
-### Hướng dẫn sử dụng với Arduino / ESP32
+### Hướng dẫn sử dụng với Arduino Uno / ESP32
 - Trong Github của bộ thư viện, chọn **<> Code / Download ZIP** để tải về bộ thư viện.
 - Mở chương trình Arduino, chọn **Sketch / Include Library / Add .ZIP Library** để cài đặt bộ thư viện.
-- Mở chương trình mẫu tại **File / Examples / MKE_ONE / Sensor / MKE_S01_Ultrasonic**
+- Mở chương trình mẫu tại **File / Examples / MKE_S01_Ultrasonic**
 - Cấu hình board mạch tương ứng là **Arduino Uno / ESP32**, chọn đúng cổng **COM Port** của mạch và nhấn **Upload** để nạp chương trình.
 - Cấp nguồn 5VDC cho mạch, kết nối chân TRIG và ECHO của Sensor với chân điều khiển được khai báo trong chương trình.
 - Xem kết quả mạch hoạt động theo chương trình đã nạp.
+Chương trình mẫu cho Arduino Uno:
+```ino
+// Thêm bộ thư viện
+// Add the library.
+#include <MKE_S01.h>
 
+// Đặt tên cho chân kết nối cảm biến
+#define TRIG_PIN 13
+#define ECHO_PIN 12
+
+// Cấu hình chân kết nối tín hiệu cho cảm biến.
+// Configure the signal connection pins for the sensor.
+MKE_S01 ultra(TRIG_PIN, ECHO_PIN);
+
+// Tạo biến số nguyên lưu giá trị cảm biến
+// value read from the sensor
+float sensorValue = 0;  
+
+void setup()
+{
+  // Khởi động kết nối Serial UART ở tốc độ 115200 để truyền dữ liệu lên máy tính.
+  // Start the Serial UART connection at 115200 to transfer data to the computer.
+  Serial.begin(115200);
+}
+
+void loop()
+{
+
+  // Đọc giá trị cảm biến
+  // read the analog in value:
+  sensorValue = ultra.dist();
+
+  // Truyền khoảng cách đo được của cảm biến lên máy tính.
+  // Show the sensor value on Arduno Serial Monitor
+  Serial.print("Value: ");
+  Serial.println(sensorValue);
+  
+  // Chờ 200ms
+  // Wait 200ms
+  delay(200);
+}
+```
+Chương trình mẫu cho ESP32:
+```ino
+// Thêm bộ thư viện
+// Add the library.
+#include <MKE_S01.h>
+
+// Đặt tên cho chân kết nối cảm biến
+#define ECHO_PIN 19 // IO19
+#define TRIG_PIN 18 // IO18
+
+// Cấu hình chân kết nối tín hiệu cho cảm biến.
+// Configure the signal connection pins for the sensor.
+MKE_S01 ultra(TRIG_PIN, ECHO_PIN);
+
+// Tạo biến số nguyên lưu giá trị cảm biến
+// value read from the sensor
+float sensorValue = 0;  
+
+void setup()
+{
+  // Khởi động kết nối Serial UART ở tốc độ 115200 để truyền dữ liệu lên máy tính.
+  // Start the Serial UART connection at 115200 to transfer data to the computer.
+  Serial.begin(115200);
+}
+
+void loop()
+{
+
+  // Đọc giá trị cảm biến
+  // read the analog in value:
+  sensorValue = ultra.dist();
+
+  // Truyền khoảng cách đo được của cảm biến lên máy tính.
+  // Show the sensor value on Arduno Serial Monitor
+  Serial.print("Value: ");
+  Serial.println(sensorValue);
+  
+  // Chờ 200ms
+  // Wait 200ms
+  delay(200);
+}
+```
 ### Hướng dẫn lập trình với Micro:bit (kéo thả khối)
 
 - Khởi động [Microsoft MakeCode](https://makecode.microbit.org/) và **Import** chương trình theo đường link sau: `https://github.com/makereduvn/mke_s01_ultrasonic_microbit/`
