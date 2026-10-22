@@ -60,7 +60,7 @@ MKE-S01 Ultrasonic Distance Sensor hỗ trợ điện áp giao tiếp 3.3V và 5
 
 ## Hướng dẫn sử dụng
 ### Hướng dẫn kết nối
-- Cấp nguồn 5VDC cho mạch qua hai chân GND và 5V.
+- Cấp nguồn 5VDC cho mạch qua hai chân `GND` và `5V`.
 - kết nối chân `TRIG` và `ECHO` của Sensor với chân điều khiển được khai báo trong chương trình.
 
 ### Hướng dẫn sử dụng với Arduino / ESP32
