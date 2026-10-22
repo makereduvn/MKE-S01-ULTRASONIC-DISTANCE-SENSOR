@@ -1,12 +1,12 @@
 #######################################
-# Syntax Coloring Map for exp:MakerEDU  #
+#   Syntax Coloring Map for MKE_S01#
 #######################################
 
 #######################################
 #       Datatypes (KEYWORD1)          # 
 #######################################
 
-MakerEDU	KEYWORD1
+MKE_S01	KEYWORD1
 
 #######################################
 #  Methods and Functions (KEYWORD2)   #
